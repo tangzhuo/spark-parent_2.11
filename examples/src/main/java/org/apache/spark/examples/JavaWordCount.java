@@ -32,7 +32,7 @@ import java.util.List;
 import java.util.regex.Pattern;
 
 public final class JavaWordCount {
-  private static String textPath="D:/text.txt";
+  private static String textPath="D:/text1.txt";
   private static final Pattern SPACE = Pattern.compile(" ");
 
   public static void main(String[] args) throws Exception {
@@ -49,6 +49,7 @@ public final class JavaWordCount {
 
     //JavaRDD<String> lines = spark.read().textFile(args[0]).javaRDD();
     JavaRDD<String> lines = spark.read().textFile(textPath).javaRDD();
+
 
     JavaRDD<String> words = lines.flatMap(new FlatMapFunction<String, String>() {
       @Override
